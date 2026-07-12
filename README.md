@@ -22,4 +22,4 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 1. Deployed a Windows 11 Enterprise virtual machine named `CLIENT01`.
 2. Updated the client's IPv4 configuration to point its primary DNS directly to the static IP of `DC01`.
 3. Executed an `nslookup` and `ping` from the client to verify name resolution and connection to the domain.
-4. Joined `CLIENT01` to the Active Directory domain and then moved the client into the `Computers` sub-OU `Workstations`.
+4. Joined `CLIENT01` to the Active Directory domain and then moved the client from the default Computer container into my custom sub-OU structure:`Computers` -> `Workstations`.
