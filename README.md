@@ -13,16 +13,6 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 1. Installed Windows Server 2022 on a virtual machine named `DC01`.
 2. Configured a permanent static IPv4 address on the server.
 
->[!NOTE]
->**Troubleshooting: Initial DNS Configuration broke AD Promotion**
->
->Initially I configured the server's preferred DNS server to Google's public DNS (`8.8.8.8`) to ensure the server had immediate internet access. I found out later that this broke the AD promotion and the system could not create the correct administrative folders. I researched the issue and discovered that the system was missing the `SYSVOL` and `NETLOGON` shares.
->
->To resolve this, I first changed the network settings back to point to the server's own IP address. Then, I had to go into the **Registry Editor (regedit)**, navigate to `HKLM\System\CurrentControlSet\Services\Netlogon\Parameters`, and manually change the **SysvolReady** value from `0` to `1`. This forced the system to create the folders and fixed the entire server setup.
->
->Finally, I ran the `net share` command to verify that both the folders were live and sharing over the network.  
-
-
 ### Phase 2: Active Directory Installation & Structure Creation
 1. Installed Active Directory Domain Services (AD DS) and DNS Server roles via Server Manager.
 2. Promoted the server to Domain Controller and established a new AD forest.
