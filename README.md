@@ -2,6 +2,7 @@
 
 ## Description
 A virtual Active Directory home lab showcasing domain controller setup, user/group management, and custom Group Policy testing.
+
 ## Environment
 * **Domain Controller:** Windows Server 2022 (`DC01`)
 * **Client Workstation:** Windows 11 Enterprise (`CLIENT01`)
@@ -31,3 +32,16 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 > To resolve this, I logged back into `DC01`, opened **DNS Manager**, and created a new zone under **Reverse Lookup Zones** for my network. I then turned on the **"Update associated pointer (PTR) record"** setting for both the `DC01` and `CLIENT01`. The change worked immediately, and upon testing again from the client, it showed the Domain Controller's full name.
 
 4. Joined `CLIENT01` to the Active Directory domain and then moved the client from the default Computer container into my custom sub-OU structure: `Computers` -> `Workstations`.
+
+### Phase 4: Group Policy Implementation & Testing
+1. Modified the Account Lockout parameters inside the Default Domain Policy at the root level to enforce a strict lockout threshold.
+2. Created a `Restrict Control Panel` GPO and linked it directly to the top level `Users` OU to block access for everyone in the `IT`, `Sales`, and `Marketing` sub-OUs.
+3. Verified enforcement on the client machine by intentionally triggering an account lockout and attempting to open the Windows Control Panel as a standard domain user.
+
+### Phase 5: Network File Sharing & Drive Mapping
+1. Created a new folder on the `DC01` C: drive and configured it as a shared network folder (`\\DC01\IT`).
+2. Configured the folder's advanced Security settings to grant explicit full control to the `IT-Admins` security group while removing access for standard users.
+3. Utilized the GPMC (Group Policy Management Console) to map the network folder path as the `I:` drive.
+4. Linked the drive mapping GPO to the `IT` sub-OU.
+5. Verified the applied security permissions by logging into `CLIENT01` under an IT admin account and standard IT user account. The `IT (\\DC01) (I:)` drive successfully mapped to both accounts, allowing file creation and write permissions (tested using a text document) for the administrator account and an access denied pop-up for the standard account.
+   
