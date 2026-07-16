@@ -3,10 +3,15 @@
 ## Description
 A virtual Active Directory home lab showcasing domain controller setup, user/group management, custom Group Policy testing, and Windows system administration. 
 
-## Environment
-* **Domain Controller:** Windows Server 2022 (`DC01`)
-* **Client Workstation:** Windows 11 Enterprise (`CLIENT01`)
+## Environment & Tools
 * **Hypervisor:** VMware Workstation Pro
+* **Operating Systems:** Windows Server 2022 (`DC01`), Windows 11 Enterprise (`CLIENT01`)
+* **Core Technologies:**
+  * Active Directory Domain Services (AD DS)
+  * Group Policy Management Console (GPMC)
+  * DNS Manager (Reverse Lookup Zones, PTR Records)
+  * NTFS Permissions & SMB File Sharing
+
 
 ## Lab Walk-through
 
