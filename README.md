@@ -54,4 +54,13 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 >
 > Verified the applied security permissions by logging into `CLIENT01` under an IT admin account. The `IT (\\DC01) (I:)` drive successfully mapped to the account, allowing file creation/write permissions (tested using a text document).
 >
-> Upon logging into `CLIENT01` with a standard IT user account, the drive did successfully map but upon trying to access it, an access denied error message appeared, confirming that non-admin access was fully blocked. 
+> Upon logging into `CLIENT01` with a standard IT user account, the drive did successfully map but upon trying to access it, an access denied error message appeared, confirming that non-admin access was fully blocked.
+
+
+
+<details><summary>📸 Click to view Phase 5 Configuration & Verification Screenshots</summary>
+  <br>
+  <p align="center">
+    <img width="775" height="578" alt="creation_shared_drive" src="https://github.com/user-attachments/assets/28d5b89e-d03a-4d0f-af8d-f8a4755a550c" />
+  </p>
+</details>
