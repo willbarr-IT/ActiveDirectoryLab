@@ -58,9 +58,25 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 
 
 
-<details><summary>📸 Click to view Phase 5 Configuration & Verification Screenshots</summary>
+<details>
+ <summary>📸 Click to view Phase 5 Configuration & Verification Screenshots</summary>
   <br>
   <p align="center">
     <img width="775" height="578" alt="creation_shared_drive" src="https://github.com/user-attachments/assets/28d5b89e-d03a-4d0f-af8d-f8a4755a550c" />
-  </p>
+   <br>
+   <b>Figure 5.1</b>
+   <br><br>
+  <img width="397" height="453" alt="drive_map_creation" src="https://github.com/user-attachments/assets/08451d1f-c0f8-4d60-8d96-6a04b0e7678e" />
+  <br>
+  <b>Figure 5.2</b>
+  <br><br>
+  <img width="771" height="237" alt="admin_test_shared_drive" src="https://github.com/user-attachments/assets/fabac0d1-2281-4f89-9295-c6c0ae9d6fbf" />
+  <br>
+  <b>Figure 5.3</b>
+  <br><br>
+  <img width="841" height="593" alt="reg_IT_user_test" src="https://github.com/user-attachments/assets/741912a7-1fa9-4315-a91f-c02afd9a25c6" />
+  <br>
+  <b>Figure 5.4</b>
+  <br><br>
+</p>
 </details>
