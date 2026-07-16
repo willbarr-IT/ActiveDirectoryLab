@@ -45,16 +45,16 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 
 ### Phase 5: Network File Sharing & Drive Mapping
 1. Created a new folder on the `DC01` C: drive for the IT department (`\\DC01\IT`).
-2. Configured the folder's advanced Security settings to grant explicit Full Control to the `IT-Admins` security group while removing access for standard users.
-3. Utilized the GPMC (Group Policy Management Console) to map the network folder path as the `I:` drive.
+2. Configured the folder's NTFS settings to grant explicit Full Control to the `IT-Admins` security group while removing access for standard users. (Figure 5.1)
+3. Utilized the GPMC (Group Policy Management Console) to map the network folder path as the `I:` drive. (Figure 5.2)
 4. Linked the drive mapping GPO to the `IT` sub-OU.
 
 > [!NOTE]
 > **Verification of Phase 5**
 >
-> Verified the applied security permissions by logging into `CLIENT01` under an IT admin account. The `IT (\\DC01) (I:)` drive successfully mapped to the account, allowing file creation/write permissions (tested using a text document).
+> Verified the applied security permissions by logging into `CLIENT01` under an IT admin account. The `IT (\\DC01) (I:)` drive successfully mapped to the account, allowing file creation/write permissions (tested using a text document). (Figure 5.3)
 >
-> Upon logging into `CLIENT01` with a standard IT user account, the drive did successfully map but upon trying to access it, an access denied error message appeared, confirming that non-admin access was fully blocked.
+> Upon logging into `CLIENT01` with a standard IT user account, the drive did successfully map but upon trying to access it, an access denied error message appeared, confirming that non-admin access was fully blocked. (Figure 5.4)
 
 
 
