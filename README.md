@@ -1,7 +1,7 @@
 # Active Directory Home Lab
 
 ## Description
-A virtual Active Directory home lab showcasing domain controller setup, user/group management, and custom Group Policy testing.
+A virtual Active Directory home lab showcasing domain controller setup, user/group management, custom Group Policy testing, and Windows system administration. 
 
 ## Environment
 * **Domain Controller:** Windows Server 2022 (`DC01`)
@@ -25,7 +25,7 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 3. Executed an `nslookup` and `ping` from the client to verify name resolution and connection to the domain.
 
 > [!NOTE]
-> **Troubleshooting: Server Unknown**
+>**Troubleshooting: Server Unknown**
 > 
 > During this step, `nslookup` returned the correct IP address but listed `Server: Unknown`. While my lab could still function, I researched the issue and discovered that my DNS server didn't have a way to translate IP addresses back into names.
 >
@@ -34,14 +34,19 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 4. Joined `CLIENT01` to the Active Directory domain and then moved the client from the default Computer container into my custom sub-OU structure: `Computers` -> `Workstations`.
 
 ### Phase 4: Group Policy Implementation & Testing
-1. Modified the Account Lockout parameters inside the Default Domain Policy at the root level to enforce a strict lockout threshold.
-2. Created a `Restrict Control Panel` GPO and linked it directly to the top level `Users` OU to block access for everyone in the `IT`, `Sales`, and `Marketing` sub-OUs.
+1. Modified the Account Lockout parameters inside the Default Domain Policy to enforce a strict lockout threshold.
+2. Created a `Restrict Control Panel` GPO and linked it directly to the `Users` OU to block access for everyone in the `IT`, `Sales`, and `Marketing` sub-OUs.
 3. Verified enforcement on the client machine by intentionally triggering an account lockout and attempting to open the Windows Control Panel as a standard domain user.
 
 ### Phase 5: Network File Sharing & Drive Mapping
-1. Created a new folder on the `DC01` C: drive and configured it as a shared network folder (`\\DC01\IT`).
+1. Created a new folder on the `DC01` C: drive for the IT department. (`\\DC01\IT`).
 2. Configured the folder's advanced Security settings to grant explicit full control to the `IT-Admins` security group while removing access for standard users.
 3. Utilized the GPMC (Group Policy Management Console) to map the network folder path as the `I:` drive.
 4. Linked the drive mapping GPO to the `IT` sub-OU.
-5. Verified the applied security permissions by logging into `CLIENT01` under an IT admin account and standard IT user account. The `IT (\\DC01) (I:)` drive successfully mapped to both accounts, allowing file creation and write permissions (tested using a text document) for the administrator account and an access denied pop-up for the standard account.
-   
+
+> [!NOTE]
+>** Verification of Phase 5**
+>
+> Verified the applied security permissions by logging into `CLIENT01` under an IT admin account. The `IT (\\DC01) (I:)` drive successfully mapped to the account, allowing file creation/write permissions (tested using a text document).
+>
+> Upon logging into `CLIENT01` with a standard IT user account, the drive did successfully map but upon trying to access it, an access denied error message appeared, confirming that non-admin access was fully blocked. 
