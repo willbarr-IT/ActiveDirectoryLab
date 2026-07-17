@@ -151,7 +151,7 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 3. Utilized the GPMC (Group Policy Management Console) to map the network folder path as the `I:` drive. *(Figure 5.2)*
 4. Linked the drive mapping GPO to the `IT` sub-OU.
 
-5. **Verified Admin Access:** Logged into `CLIENT01` under an IT admin account to confirm the `IT (\\DC01) (I:)` drive successfully mapped with full write/creation permissions, verified by creating a dummy text document. *(Figure 5.3)*
+5. **Verified Admin Access:** Logged into `CLIENT01` under an IT admin account to confirm the `IT (\\DC01) (I:)` drive successfully mapped with full write/creation permissions, verified by creating a sample text document. *(Figure 5.3)*
 
 6. **Verified Security Restrictions:** Logged into `CLIENT01` with a standard IT user account to confirm that attempting to open the mapped drive triggered an "Access Denied" error. *(Figure 5.4)*
 
