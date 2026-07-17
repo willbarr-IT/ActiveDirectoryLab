@@ -39,9 +39,34 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 4. Joined `CLIENT01` to the Active Directory domain and then moved the client from the default Computer container into my custom sub-OU structure: `Computers` -> `Workstations`.
 
 ### Phase 4: Group Policy Implementation & Testing
-1. Modified the Account Lockout parameters inside the Default Domain Policy to enforce a strict lockout policy.
-2. Created a `Restrict Control Panel` GPO and linked it directly to the `Users` OU to block access for everyone in the `IT`, `Sales`, and `Marketing` sub-OUs.
-3. Verified enforcement on the client machine by intentionally triggering an account lockout and attempting to open the Windows Control Panel as a standard domain user.
+1. Modified the Account Lockout parameters inside the Default Domain Policy to enforce a strict lockout policy. (Figure 4.1)
+2. Created a `Restrict Control Panel` GPO and linked it directly to the `Users` OU to block access for everyone in the `IT`, `Sales`, and `Marketing` sub-OUs. (Figure 4.2)
+3. Verified enforcement on the client machine by intentionally triggering an account lockout and attempting to open the Windows Control Panel as a standard domain user. (Figure 4.3 & Figure 4.4)
+
+
+<details>
+ <summary>📸 Click to view Phase 4 Configuration & Verification Screenshots</summary>
+  <br>
+  <p align="center">
+   <img width="887" height="561" alt="account_lockout_policy" src="https://github.com/user-attachments/assets/477acb77-17ab-4f77-8d1c-af16bc753c1f" />
+   <br>
+   <b>Figure 4.1</b>
+   <br><br>
+   <img width="323" height="391" alt="group_policy_structure" src="https://github.com/user-attachments/assets/1844d3e8-2f65-4367-809b-b1e8004ffaa4" />
+  <br>
+  <b>Figure 4.2</b>
+  <br><br>
+  <img width="873" height="647" alt="lockout_test" src="https://github.com/user-attachments/assets/2ec68612-cb3a-42fa-9f41-daf15504e7ab" />
+  <br>
+  <b>Figure 4.3</b>
+  <br><br>
+  <img width="876" height="485" alt="ctrl_panel_test" src="https://github.com/user-attachments/assets/d4d2da33-d315-434c-909a-de7dfd923016" />
+  <br>
+  <b>Figure 4.4</b>
+  <br><br>
+</p>
+</details>
+
 
 ### Phase 5: Network File Sharing & Drive Mapping
 1. Created a new folder on the `DC01` C: drive for the IT department (`\\DC01\IT`).
