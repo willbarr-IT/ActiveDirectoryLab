@@ -27,16 +27,38 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 ### Phase 3: Client Deployment & Domain Join
 1. Deployed a Windows 11 Enterprise virtual machine named `CLIENT01`.
 2. Updated the client's IPv4 configuration to point its primary DNS directly to the static IP of `DC01`.
-3. Executed an `nslookup` and `ping` from the client to verify name resolution and connection to the domain.
+3. Executed an `nslookup` and `ping` from the client to verify name resolution and connection to the domain. (Figure 3.1)
 
 > [!NOTE]
 > **Troubleshooting: Server Unknown**
 > 
 > During this step, `nslookup` returned the correct IP address but listed `Server: Unknown`. While my lab could still function, I researched the issue and discovered that I had not yet configured a Reverse Lookup Zone on my DNS server.
 >
-> To resolve this, I logged back into `DC01`, opened **DNS Manager**, and created a new zone under **Reverse Lookup Zones** for my network. I then turned on the **"Update associated pointer (PTR) record"** setting for both `DC01` and `CLIENT01`. The change worked immediately, and upon testing again from the client, it showed the Domain Controller's full name.
+> To resolve this, I logged back into `DC01`, opened **DNS Manager**, and created a new zone under **Reverse Lookup Zones** for my network. I then turned on the **"Update associated pointer (PTR) record"** setting for both `DC01` and `CLIENT01`. The change worked immediately, and upon testing again from the client, it showed the Domain Controller's full name. (Figure 3.2)
 
-4. Joined `CLIENT01` to the Active Directory domain and then moved the client from the default Computer container into my custom sub-OU structure: `Computers` -> `Workstations`.
+4. Joined `CLIENT01` to the Active Directory domain and then moved the client from the default Computer container into my custom sub-OU structure: `Computers` -> `Workstations`. (Figure 3.3)
+
+
+<details>
+ <summary>📸 Click to view Phase 3 Configuration & Troubleshooting Screenshots</summary>
+  <br>
+  <p align="center">
+   <img width="835" height="476" alt="client_ping_nslookup" src="https://github.com/user-attachments/assets/188c8077-fbf5-4a5c-b229-f9fca036b312" />
+   <br>
+   <b>Figure 3.1</b>
+   <br><br>
+   <img width="837" height="388" alt="reverse_lookup   PTR" src="https://github.com/user-attachments/assets/d33d8165-060a-4088-9615-ed11d3ee2437" />
+   <br>
+   <b>Figure 3.2</b>
+   <br><br>
+   <img width="783" height="522" alt="moved_client01_to_workstations" src="https://github.com/user-attachments/assets/2f1097bf-fe2a-4a7c-989b-c97ab8613918" />
+   <br>
+   <b>Figure 3.3</b>
+   <br><br>
+</p>
+</details>
+
+
 
 ### Phase 4: Group Policy Implementation & Testing
 1. Modified the Account Lockout parameters inside the Default Domain Policy to enforce a strict lockout policy. (Figure 4.1)
