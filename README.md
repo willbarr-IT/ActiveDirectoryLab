@@ -20,9 +20,29 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 2. Configured a permanent static IPv4 address on the server.
 
 ### Phase 2: Active Directory Installation & Structure Creation
-1. Installed Active Directory Domain Services (AD DS) and DNS Server roles via Server Manager.
-2. Promoted the server to Domain Controller and established a new AD forest.
-3. Built a simple and scalable Organizational Unit (OU) framework with tier-1 OUs as: `Users`, `Computers`, and `Groups`, along with their respective sub-OUs.
+1. Installed Active Directory Domain Services (AD DS) and DNS Server roles via Server Manager. (Figure 2.1)
+2. Promoted the server to Domain Controller and established a new AD forest. (Figure 2.2)
+3. Built a simple and scalable Organizational Unit (OU) framework with tier-1 OUs as: `Users`, `Computers`, and `Groups`, along with their respective sub-OUs. (Figure 2.3)
+
+<details>
+ <summary>📸 Click to view Phase 2 Configuration Screenshots</summary>
+  <br>
+  <p align="center">
+   <img width="783" height="549" alt="AD_roles-features" src="https://github.com/user-attachments/assets/ce98308f-35f4-452b-b79b-14df405eb90c" />
+   <br>
+   <b>Figure 2.1</b>
+   <br><br>
+   <img width="757" height="554" alt="deployment_config" src="https://github.com/user-attachments/assets/89cc6db7-ff9e-408e-b06d-52004fa0088f" />
+   <br>
+   <b>Figure 2.2</b>
+   <br><br>
+   <img width="790" height="540" alt="ad_structure_groupmembership" src="https://github.com/user-attachments/assets/2632ac0b-5b7e-4364-b85e-f1ad8f265f39" />
+   <br>
+   <b>Figure 2.3</b>
+   <br><br>
+</p>
+</details>
+
 
 ### Phase 3: Client Deployment & Domain Join
 1. Deployed a Windows 11 Enterprise virtual machine named `CLIENT01`.
