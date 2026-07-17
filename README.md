@@ -16,13 +16,31 @@ A virtual Active Directory home lab showcasing domain controller setup, user/gro
 ## Lab Walk-through
 
 ### Phase 1: Initial Server & Network Configuration
-1. Installed Windows Server 2022 on a virtual machine named `DC01`.
-2. Configured a permanent static IPv4 address on the server.
+1. Installed Windows Server 2022 on a virtual machine named `DC01`. (Figure 1.1)
+2. Configured a permanent static IPv4 address on the server. (Figure 1.2)
+
+
+<details>
+ <summary>📸 Click to view Phase 1 Configuration Screenshots</summary>
+  <br>
+  <p align="center">
+   <img width="602" height="155" alt="VM_systeminfo" src="https://github.com/user-attachments/assets/c4ba08e6-bb30-4b47-ab76-cd633450de8f" />
+   <br>
+   <b>Figure 1.1</b>
+   <br><br>
+   <img width="397" height="451" alt="DNS_config_after" src="https://github.com/user-attachments/assets/977262a1-b54f-4462-a4b4-bbc3720e70cf" />
+   <br>
+   <b>Figure 1.2</b>
+   <br><br>
+</p>
+</details>
+
 
 ### Phase 2: Active Directory Installation & Structure Creation
 1. Installed Active Directory Domain Services (AD DS) and DNS Server roles via Server Manager. (Figure 2.1)
 2. Promoted the server to Domain Controller and established a new AD forest. (Figure 2.2)
 3. Built a simple and scalable Organizational Unit (OU) framework with tier-1 OUs as: `Users`, `Computers`, and `Groups`, along with their respective sub-OUs. (Figure 2.3)
+
 
 <details>
  <summary>📸 Click to view Phase 2 Configuration Screenshots</summary>
